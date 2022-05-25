@@ -3,14 +3,25 @@ import findPokemonApi from './api/findPokemonApi';
 
 function SearchPage () {
   const [selectedPokemon, setSelectedPokemon] = useState()
+  const [pokeImage, setPokeImage] = useState()
 
   const findByName = async ({ target }) => {
-    const teste = await findPokemonApi(target.value)
-    setSelectedPokemon(teste);
+    const response = await findPokemonApi(target.value)
+    setSelectedPokemon(response);
+    setPokeImage(response.sprites.front_default);
+  };
+
+  const randomInitial = async () => {
+    const iniciais = ["bulbasaur", "squirtle", "charmander"]
+    const escolhido = Math.floor(Math.random() * 3);
+    const resultado = await findPokemonApi(iniciais[escolhido])
+    console.log('resultado: ', escolhido);
+    setPokeImage(resultado.sprites.front_default)
   }
-    // useEffect((
-    //   console.log('foi')
-    // ), [])
+
+  useEffect(() => {
+    randomInitial();
+  }, [])
 
   return (
     <div>
@@ -21,6 +32,7 @@ function SearchPage () {
         onChange={ findByName }
         placeholder="procure um pokemon"
       />
+      <img src={ pokeImage } alt="foto do pokemon" />
     </div>
   );
 }
