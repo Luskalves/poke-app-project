@@ -4,6 +4,6 @@ export default async function findPokemonApi(nameOrId) {
     const data = await response.json();
     return data;
   } catch (err) {
-    return [];
+    return undefined;
   }
 }
