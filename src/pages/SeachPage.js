@@ -29,7 +29,9 @@ function SearchPage () {
 
   return (
     <div className="searchbar">
-      <h1> POKE LUSKA </h1>
+      <header className="header">
+        <h1> POKE LUSKA </h1>
+      </header>
       <input
         type="text"
         onChange={ findByName }
