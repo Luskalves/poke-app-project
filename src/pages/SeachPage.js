@@ -5,6 +5,7 @@ import '../App.css'
 function SearchPage () {
   const [pokeImage, setPokeImage] = useState()
   const [pokeName, setPokeName] = useState('')
+  const [favouritesPkm, setFavouritesPkm] = useState([]);
 
   const findByName = async ({ target }) => {
     const response = await findPokemonApi(target.value)
@@ -23,6 +24,12 @@ function SearchPage () {
     setPokeName(resultado.species.name)
   }
 
+  const addFavouritePkm = async () => {
+    const newFavourite = await findPokemonApi(pokeName)
+    setFavouritesPkm([...favouritesPkm, newFavourite])
+    console.log('lista deles:', favouritesPkm)
+  }
+
   useEffect(() => {
     randomInitial();
   }, [])
@@ -32,13 +39,23 @@ function SearchPage () {
       <header className="header">
         <h1> POKE LUSKA </h1>
       </header>
-      <input
-        type="text"
-        onChange={ findByName }
-        placeholder="procure um pokemon"
-      />
-      <img src={ pokeImage } alt="foto do pokemon" />
-      <span> {pokeName} </span>
+      
+      <section>
+        <input
+          type="text"
+          onChange={ findByName }
+          placeholder="procure um pokemon"
+        />
+        <img src={ pokeImage } alt="foto do pokemon" />
+        <span> {pokeName} </span>
+      </section>
+      
+      <button
+        data-testid="favourite-button"
+        onClick={ () => addFavouritePkm() }
+      >
+        Favoritar
+      </button>
     </div>
   );
 }
