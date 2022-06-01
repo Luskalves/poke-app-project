@@ -8,8 +8,8 @@ function Favourites () {
   } = useContext(pokeContext);
 
   const renderFavourites = () => {
-    return favouritesPkm.map((poke) => (
-      <div>
+    return favouritesPkm.map((poke, idx) => (
+      <div key={idx}>
         <img src={ poke.sprites.front_default } alt={ poke.species.name } />
         <p>{ poke.species.name }</p>
       </div>
