@@ -8,7 +8,6 @@ function Favourites () {
   } = useContext(pokeContext);
 
   const renderFavourites = () => {
-    console.log('sexo')
     return favouritesPkm.map((poke) => (
       <div>
         <img src={ poke.sprites.front_default } alt={ poke.species.name } />
@@ -25,7 +24,8 @@ function Favourites () {
       </header>
       <h1>Pokemons Favoritos</h1>
 
-      {favouritesPkm ? renderFavourites() : 'Não existem pokemons favoritos'}
+      {favouritesPkm.length >= 1 ? renderFavourites() :
+        'Não existem pokemons favoritos'}
     </div>
   )
 }
