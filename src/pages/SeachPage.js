@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import findPokemonApi from './api/findPokemonApi';
 import '../App.css'
+import Header from './Header';
+import pokeContext from '../context/pokeContext';
 
 function SearchPage () {
+  const {
+    favouritesPkm,
+    setFavouritesPkm
+  } = useContext(pokeContext);
+  
   const [pokeImage, setPokeImage] = useState()
   const [pokeName, setPokeName] = useState('')
-  const [favouritesPkm, setFavouritesPkm] = useState([]);
 
   const findByName = async ({ target }) => {
     const response = await findPokemonApi(target.value)
@@ -38,6 +44,7 @@ function SearchPage () {
     <div className="searchbar">
       <header className="header">
         <h1> POKE LUSKA </h1>
+        <Header />
       </header>
       
       <section>

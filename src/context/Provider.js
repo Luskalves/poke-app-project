@@ -2,8 +2,13 @@ import { React, useState } from 'react';
 import pokeContext from './pokeContext';
 
 function Provider ({ children }) {
-  const [luska] = useState('luska')
-  const pokeState = { luska }
+  const [favouritesPkm, setFavouritesPkm] = useState([]);
+
+  const pokeState = { 
+    favouritesPkm,
+    setFavouritesPkm
+  };
+  
   return (
     <pokeContext.Provider value={ pokeState }>
       {children}
