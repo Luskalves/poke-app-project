@@ -1,3 +1,9 @@
+@import url('http://fonts.cdnfonts.com/css/pokemon-solid');
+
+* {
+  font-family: 'Pokemon Solid', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -9,6 +15,18 @@
 
 .header h1 {
   color: yellow;
+}
+
+.header-links {
+  color: yellow;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.search-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .favorites-list {

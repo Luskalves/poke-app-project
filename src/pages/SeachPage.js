@@ -47,22 +47,27 @@ function SearchPage () {
         <Header />
       </header>
       
-      <section>
-        <input
-          type="text"
-          onChange={ findByName }
-          placeholder="procure um pokemon"
-        />
-        <img src={ pokeImage } alt="foto do pokemon" />
-        <span> {pokeName} </span>
+      <section className="search-area">
+        <div>
+          <img src={ pokeImage } alt="foto do pokemon" />
+          <div>
+            <span> {pokeName} </span>
+          </div>
+          <div>
+            <input
+              type="text"
+              onChange={ findByName }
+              placeholder="procure um pokemon"
+            />
+            <button
+              data-testid="favourite-button"
+              onClick={ () => addFavouritePkm() }
+            >
+              Favoritar
+            </button>
+          </div>
+        </div>
       </section>
-      
-      <button
-        data-testid="favourite-button"
-        onClick={ () => addFavouritePkm() }
-      >
-        Favoritar
-      </button>
     </div>
   );
 }
