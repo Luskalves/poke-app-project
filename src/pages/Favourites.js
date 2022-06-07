@@ -24,8 +24,10 @@ function Favourites () {
       </header>
       <h1>Pokemons Favoritos</h1>
 
-      {favouritesPkm.length >= 1 ? renderFavourites() :
-        'Não existem pokemons favoritos'}
+      <div className="favorites-list">
+        {favouritesPkm.length >= 1 ? renderFavourites() :
+          'Não existem pokemons favoritos'}
+      </div>
     </div>
   )
 }

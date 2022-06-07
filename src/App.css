@@ -10,3 +10,8 @@
 .header h1 {
   color: yellow;
 }
+
+.favorites-list {
+  display: flex;
+  justify-content: center;
+}
